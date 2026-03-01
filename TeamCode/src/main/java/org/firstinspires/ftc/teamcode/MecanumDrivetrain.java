@@ -24,7 +24,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
  */
 public class MecanumDrivetrain {
 
-    // ==================== HARDWARE ====================
+    // ==================== HARDWARE =================
     private final DcMotor frontLeft;
     private final DcMotor frontRight;
     private final DcMotor rearLeft;

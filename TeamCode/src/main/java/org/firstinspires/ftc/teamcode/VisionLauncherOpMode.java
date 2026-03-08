@@ -85,7 +85,6 @@ public class VisionLauncherOpMode extends LinearOpMode {
         telemetry.setMsTransmissionInterval(11);
         limelight.pipelineSwitch(0); // Use pipeline 0 (configure for AprilTag detection)
         limelight.start();
-
         telemetry.addData("Status", "Ready!");
         telemetry.addData(">", "Press Play to start");
         telemetry.update();
@@ -195,8 +194,7 @@ public class VisionLauncherOpMode extends LinearOpMode {
                 tx, ty,
                 LIMELIGHT_HEIGHT,
                 APRILTAG_HEIGHT,
-                LIMELIGHT_ANGLE
-        );
+                LIMELIGHT_ANGLE);
 
         telemetry.addData("Vision", "Tag #%d detected", TARGET_APRILTAG_ID);
         telemetry.addData("Distance", "%.2f meters", distance);

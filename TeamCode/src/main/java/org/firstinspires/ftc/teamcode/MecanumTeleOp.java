@@ -3,34 +3,63 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.subsystems.FlywheelLauncher;
+import org.firstinspires.ftc.teamcode.subsystems.Intake;
+
 /**
- * MecanumTeleOp - TeleOp OpMode using the MecanumDrivetrain class
+ * MecanumTeleOp - Main TeleOp OpMode
  *
- * Controls:
+ * Driver 1 Controls:
  * - Left Stick Y: Forward/Backward
  * - Left Stick X: Strafe Left/Right
- * - Right Stick X: Rotate Left/Right
+ * - Right Stick X: Rotate
  * - Left Bumper: Precision/Slow Mode (40% speed)
+ * - Right Trigger: Intake In
+ * - Left Trigger: Intake Out (Unjam)
+ * - A Button: Spin up Shooter (Flywheel)
+ * - B Button: Stop Shooter
  */
 @TeleOp(name = "Mecanum TeleOp", group = "TeleOp")
 public class MecanumTeleOp extends LinearOpMode {
 
-    // Declare drivetrain object
+    // Declare subsystems
     private MecanumDrivetrain drivetrain;
+    private Intake intake;
+    private FlywheelLauncher shooter;
+
+    // State
+    private double shooterTargetRPM = 2000.0; // Default RPM for manual launch
 
     @Override
     public void runOpMode() throws InterruptedException {
 
-        // Initialize the drivetrain
+        // Initialize Drivetrain
         drivetrain = new MecanumDrivetrain(hardwareMap);
         drivetrain.setTelemetry(telemetry);
 
+        // Initialize Mechanisms
+        try {
+            intake = new Intake(hardwareMap, "intake");
+            shooter = new FlywheelLauncher(hardwareMap, "shooter");
+        } catch (IllegalArgumentException e) {
+            telemetry.addData("HARDWARE ERROR", "Missing motor config!");
+            telemetry.addData("Exception", e.getMessage());
+            telemetry.update();
+            // Don't crash immediately, allow user to read error
+            sleep(5000);
+            throw e;
+        }
+
         // Display initialization status
-        telemetry.addData("Status", "Initialized");
-        telemetry.addData("Controls", "Left Stick Y: Forward/Back");
-        telemetry.addData("", "Left Stick X: Strafe Left/Right");
-        telemetry.addData("", "Right Stick X: Rotate");
-        telemetry.addData("", "Left Bumper: Precision Mode");
+        telemetry.addData("Status", "Initialized Successfully");
+        telemetry.addData("---", "DRIVE CONTROLS");
+        telemetry.addData("L Stick", "Move & Strafe");
+        telemetry.addData("R Stick X", "Rotate");
+        telemetry.addData("L Bumper", "Precision Mode");
+        telemetry.addData("---", "MECHANISM CONTROLS");
+        telemetry.addData("R Trigger", "Intake In");
+        telemetry.addData("L Trigger", "Intake Out");
+        telemetry.addData("A/B", "Shooter Start/Stop");
         telemetry.update();
 
         // Wait for the driver to press START
@@ -39,27 +68,49 @@ public class MecanumTeleOp extends LinearOpMode {
         // Run until the driver presses STOP
         while (opModeIsActive()) {
 
-            // Enable precision mode when left bumper is pressed
+            // --- DRIVETRAIN CONTROLS ---
             drivetrain.setPrecisionMode(gamepad1.left_bumper);
 
-            // Drive the robot using gamepad inputs (inverted to fix reversed controls)
+            // Note: MecanumDrivetrain.driveWithGamepad() already handles
+            // the inverted Y-axis. We just pass the raw gamepad inputs here.
             drivetrain.driveWithGamepad(
-                    -gamepad1.left_stick_y,   // Forward/Backward (inverted)
-                    -gamepad1.left_stick_x,   // Strafe Left/Right (inverted)
-                    -gamepad1.right_stick_x   // Turn Left/Right (inverted)
-            );
+                    gamepad1.left_stick_y,
+                    gamepad1.left_stick_x,
+                    gamepad1.right_stick_x);
 
-            // Display drivetrain telemetry
+            // --- INTAKE CONTROLS ---
+            // Triggers act as variable speed control
+            if (gamepad1.right_trigger > 0.05) {
+                intake.setPower(gamepad1.right_trigger);
+            } else if (gamepad1.left_trigger > 0.05) {
+                intake.setPower(-gamepad1.left_trigger);
+            } else {
+                intake.stop();
+            }
+
+            // --- SHOOTER CONTROLS ---
+            if (gamepad1.a) {
+                shooter.setTargetRPM(shooterTargetRPM);
+            } else if (gamepad1.b) {
+                shooter.stop();
+            }
+
+            // --- TELEMETRY ---
             drivetrain.sendTelemetry();
 
-            // Optional: Display encoder positions
-            // drivetrain.sendEncoderTelemetry();
+            telemetry.addData("---", "MECHANISMS");
+            telemetry.addData("Intake Power", "%.2f", intake.getPower());
+            telemetry.addData("Shooter RPM", "%.0f / %.0f", shooter.getCurrentRPM(), shooter.getTargetRPM());
+            telemetry.addData("Shooter Ready?", shooter.isAtSpeed(50) ? "YES" : "NO");
 
-            // Update telemetry display
             telemetry.update();
         }
 
-        // Stop the robot when OpMode ends
+        // Stop all mechanisms when OpMode ends
         drivetrain.stop();
+        if (intake != null)
+            intake.stop();
+        if (shooter != null)
+            shooter.stop();
     }
 }

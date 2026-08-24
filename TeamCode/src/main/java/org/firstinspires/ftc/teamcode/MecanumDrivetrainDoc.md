@@ -5,6 +5,7 @@
 ---
 
 ## Table of Contents
+
 1. [Project Overview](#project-overview)
 2. [File Structure](#file-structure)
 3. [Hardware Configuration](#hardware-configuration)

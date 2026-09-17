@@ -105,6 +105,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 ## Version 10.3 (20250625-090416)
 
 ### Breaking Changes
+
 * The behavior of setGlobalErrorMsg() is changed.  Note that this is an SDK internal method that is not 
   meant to be used by team software or third party libraries.  Teams or libraries using this method should
   find another means to communicate failure.  The design intent of setGlobalErrorMsg() is to report an 

@@ -122,6 +122,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
   * This is only breaking for you if you copy one of the changed samples to your own project and expect to use the same robot configuration as before.
 
 ### Known Issues
+
 * The redesigned OnBotJava new file workflow allows the user to use a lowercase letter as the first character of a filename.
   This is a regression from 10.2 which required the first character to be uppercase.  Software will build, but if the user tries
   to rename the file, the rename will fail.

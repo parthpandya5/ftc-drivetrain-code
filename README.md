@@ -203,6 +203,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 * Updated Self-Inspect to identify mismatched RC/DS software versions as a "caution" rather than a "failure."
 
 ### Bug Fixes
+
 * Fixes [AngularVelocity conversion regression](https://github.com/FIRST-Tech-Challenge/FtcRobotController/issues/1070)
 
 ## Version 10.0  (20240828-111152)

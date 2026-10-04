@@ -209,6 +209,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 ## Version 10.0  (20240828-111152)
 
 ### Breaking Changes
+
 * Java classes and Blocks for TensorFlow Object Detection have been removed.
 * `AngularVelocity.unit` which was of type `AngleUnit` has been renamed `AngularVelocity.angleUnit` of type `UnnormalizedAngleUnit`
 

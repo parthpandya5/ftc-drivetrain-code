@@ -214,6 +214,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 * `AngularVelocity.unit` which was of type `AngleUnit` has been renamed `AngularVelocity.angleUnit` of type `UnnormalizedAngleUnit`
 
 ### Enhancements
+
 * Sample for REV Digital Indicator has been added - ConceptRevLED
 * Adds support for the [Sparkfun QWIIC LED Stick](https://www.sparkfun.com/products/18354)
   * To connect it directly, you need this [cable](https://www.sparkfun.com/products/25596)

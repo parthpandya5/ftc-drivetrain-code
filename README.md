@@ -252,6 +252,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 * Adds Blocks sample SensorOctoQuad.
 
 ### Bug Fixes
+
 * Fixes a bug where the RevBlinkinLedDriver Blocks were under Actuators in the Blocks editor toolbox. They are now Other Devices.
 * Fixes a bug where `Exception`s thrown in user code after a stop was requested by the Driver Station would be silently eaten
 * Fixed a bug where if you asked for `AngularVelocity` in a unit different than the device reported it in, it would normalize it between -PI and PI for radians, and -180 and 180 for degrees.

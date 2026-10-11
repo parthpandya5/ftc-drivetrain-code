@@ -260,6 +260,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 ## Version 9.2 (20240701-085519)
 
 ### Important Notes
+
 * Java classes and Blocks for TensorFlow Object Detection have been deprecated and will be removed in Version 10.0.
 * The samples that use TensorFlow Object Detection have been removed.
 

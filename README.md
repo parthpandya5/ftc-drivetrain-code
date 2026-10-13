@@ -265,6 +265,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 * The samples that use TensorFlow Object Detection have been removed.
 
 ### Enhancements
+
 * Adds explanatory text to failed items on the inspection activities.  To view the explanatory text tap the red warning icon for a failed item.
 * In the Blocks editor: added a new kind of variable set block that sets the variable and also returns the new value.
 * Changes the way that camera controls behave for a SwitchableCamera. Now, each method (such as getExposure, getMinExposure, getMaxExposure, setExposure for ExposureControl) acts on the currently active camera.

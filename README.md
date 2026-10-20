@@ -317,6 +317,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
     * CameraStreamServer.setSource​
 
 ### Bug Fixes
+
 * Fixes a problem where OnBotJava does not apply font size settings to the editor.
 * Updates EasyOpenCV dependency to v1.7.1
   * Fixes inability to use EasyOpenCV CameraFactory in OnBotJava

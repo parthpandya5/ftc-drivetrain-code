@@ -328,6 +328,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 ## Version 9.0.1 (20230929-083754)
 
 ### Enhancements
+
 * Updates AprilTag samples to include Decimation and additional Comments.  Also corrects misleading tag ID warnings
 * Increases maximum size of Blocks inline comments to 140 characters
 * Adds Blocks sample BasicOmniOpMode.

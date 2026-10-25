@@ -337,6 +337,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 * Updated Java Sample ConceptTensorFlowObjectDetection.java to include missing elements needed for custom model support.
 
 ### Bug Fixes
+
 * Fixes a problem where after October 1 the Driver Station will report as obsolete on v9.0 and prompt the user to update.
 
 ## Version 9.0 (20230830-154348)

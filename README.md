@@ -343,6 +343,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 ## Version 9.0 (20230830-154348)
 
 ### Breaking Changes
+
 * Removes Vuforia
 * Fields in `AprilTagDetection` and `AprilTagPose(ftc/raw)` objects are now `final`
 * VisionPortal builder method `setCameraMonitorViewId()` has been renamed to `setLiveViewContainerId()` and `enableCameraMonitoring()` has been renamed to `enableLiveView()`

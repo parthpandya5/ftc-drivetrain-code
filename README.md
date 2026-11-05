@@ -349,6 +349,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 * VisionPortal builder method `setCameraMonitorViewId()` has been renamed to `setLiveViewContainerId()` and `enableCameraMonitoring()` has been renamed to `enableLiveView()`
 
 ### Enhancements
+
 * Adds support for the DFRobot HuskyLens Vision Sensor.
 * Blocks teams can now perform webcam calibration.
     * Added a Block for System.currentTimeMillis (under Utilities/Time)

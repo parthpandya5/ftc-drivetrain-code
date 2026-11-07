@@ -370,6 +370,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
     * The ConceptCompassCalibration, SensorMRCompass, and SensorMRIRSeeker samples have been deleted, as they are not useful for modern FTC competitions.
 
 ### Bug Fixes
+
 * Fixes a bug which prevented PlayStation gamepads from being used in bluetooth mode. Bluetooth is NOT legal for competition but may be useful to allow a DS device to be used while charging, or at an outreach event.
 * Fixes a bug where a Blocks OpMode's Date Modified value can change to December 31, 1969, if the Control Hub is rebooted while the Blocks OpMode is being edited.
 * Fixes the automatic TeleOp preselection feature (was broken in 8.2)

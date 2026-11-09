@@ -389,6 +389,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
 ## Version 8.2 (20230707-131020)
 
 ### Breaking Changes
+
 * Non-linear (iterative) OpModes are no longer allowed to manipulate actuators in their `stop()` method. Attempts to do so will be ignored and logged.
   * When an OpMode attempts to illegally manipulate an actuator, the Robot Controller will print a log message
     including the text `CANCELLED_FOR_SAFETY`.

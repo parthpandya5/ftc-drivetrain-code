@@ -406,6 +406,7 @@ The readme.md file located in the [/TeamCode/src/main/java/org/firstinspires/ftc
   TensorFlow Object Detection can be opened in the Blocks editor, but running them will not work.
 
 ### New features
+
 * Adds new `VisionPortal` API for computer vision
     * **This API may be subject to change for final kickoff release!**
     * Several new samples added.

@@ -472,6 +472,7 @@ This is a bug fix only release to address the following four issues.
 * Deprecates (and stops respecting) `DeviceProperties.xmlTagAliases`.
 
 ### Enhancements
+
 * Adds a new `IMU` interface to Blocks and Java that can be used with both the original BNO055 IMU
   included in all older Control Hubs and Expansion Hubs, and the new alternative BHI260AP IMU.
   * You can determine which type of IMU is in your Control Hub by navigating to the Manage page of the web interface.

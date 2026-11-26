@@ -518,6 +518,7 @@ This is a bug fix only release to address the following four issues.
     custom driver, there is no guarantee about which implementation will be returned.
 
 ### Bug Fixes
+
 * Fixes accessing the "Manage TensorFlow Lite Models" and "Manage Sounds" links and performing
   Blocks and OnBotJava OpMode downloads from the REV Hardware Client.
 * Fixes issue where an I2C device driver would be auto-initialized using the parameters assigned in
